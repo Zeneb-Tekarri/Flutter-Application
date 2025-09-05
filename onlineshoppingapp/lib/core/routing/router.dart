@@ -7,7 +7,7 @@ class AppRouter {
     final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.splash:
-        return MaterialPageRoute(builder: (_) => Splash());
+        return MaterialPageRoute(builder: (_) => const Splash());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
