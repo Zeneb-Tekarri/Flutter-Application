@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlineshoppingapp/core/constant/color.dart';
 import 'package:onlineshoppingapp/core/utils/onBoarding_list.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onlineshoppingapp/features/auth/logIn/view/screen/logIn_screen.dart';
 import 'package:onlineshoppingapp/features/onBoarding/view-model/cubit/onboarding_cubit.dart';
 
 class OnBoarding extends StatelessWidget {
@@ -27,6 +28,9 @@ class OnBoarding extends StatelessWidget {
                         flex: 3,
                         child: PageView.builder(
                             controller: cubit.pageController,
+                            onPageChanged: (index) {
+                              cubit.changeCurrentIndex(index);
+                            },
                             itemCount: onBoardingList.length,
                             itemBuilder: (context, index) => Column(
                                   children: [
@@ -139,7 +143,10 @@ class OnBoarding extends StatelessWidget {
                                                   .read<OnboardingCubit>()
                                                   .nextPage();
                                             } else {
-                                              // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => LoginScreen() ));
+                                              Navigator.of(context).pushReplacement(
+                                                  MaterialPageRoute(
+                                                      builder: (_) =>
+                                                          const LoginScreen()));
                                             }
                                           },
                                           child: const Text("Next"),
