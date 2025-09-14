@@ -11,9 +11,16 @@ class EmailPasswordWidget extends StatelessWidget {
         child: Column(
       children: [
         CustomTextFormField(
-            hintText: "Username or Email", validator: (value) {}),
+          hintText: "Username or Email",
+          validator: (value) {},
+          prefixIcon: const Icon(Icons.email_outlined),
+        ),
         SizedBox(height: 12.h),
-        CustomTextFormField(hintText: "Password", validator: (value) {}),
+        CustomTextFormField(
+          hintText: "Password",
+          validator: (value) {},
+          prefixIcon: const Icon(Icons.lock_outline),
+        ),
       ],
     ));
   }
