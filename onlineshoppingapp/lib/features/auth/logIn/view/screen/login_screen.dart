@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlineshoppingapp/core/constant/color.dart';
 import 'package:onlineshoppingapp/core/widgets/custom_button.dart';
 import 'package:onlineshoppingapp/features/auth/logIn/view/widget/email_password_widget.dart';
+import 'package:onlineshoppingapp/features/auth/logIn/view/widget/other_login_custom.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -67,6 +68,34 @@ class LoginScreen extends StatelessWidget {
           SizedBox(
             height: 15.h,
           ),
+          const OtherLoginCustom(),
+          SizedBox(
+            height: 15.h,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Are you new in ZenoShop',
+                style: TextStyle(
+                    fontSize: 8.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.blueGrey),
+              ),
+              SizedBox(
+                width: 5.w,
+              ),
+              InkWell(
+                child: Text(
+                  'register?',
+                  style: TextStyle(
+                      fontSize: 8.sp,
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.lightPinkColor),
+                ),
+              )
+            ],
+          )
         ],
       )),
     );

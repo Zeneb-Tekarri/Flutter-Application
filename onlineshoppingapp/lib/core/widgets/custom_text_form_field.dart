@@ -70,6 +70,7 @@ class CustomTextFormField extends StatelessWidget {
         validator: (value) {
           return validator(value);
         },
+        obscureText: isObscureText ?? false,
       ),
     );
   }

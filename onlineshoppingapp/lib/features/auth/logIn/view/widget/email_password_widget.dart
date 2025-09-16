@@ -19,6 +19,7 @@ class EmailPasswordWidget extends StatelessWidget {
         CustomTextFormField(
           hintText: "Password",
           validator: (value) {},
+          isObscureText: true,
           prefixIcon: const Icon(Icons.lock_outline),
         ),
       ],

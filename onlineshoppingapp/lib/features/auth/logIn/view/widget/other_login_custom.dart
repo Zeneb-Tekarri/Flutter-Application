@@ -11,8 +11,8 @@ class OtherLoginCustom extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 40.w,
-          height: 40.h,
+          width: 40,
+          height: 40,
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
               shape: RoundedRectangleBorder(
@@ -22,7 +22,49 @@ class OtherLoginCustom extends StatelessWidget {
                       color: AppColor.lightPinkColor),
                   borderRadius: BorderRadius.circular(40.r))),
           child: Stack(
-            children: [],
+            children: [
+              Center(child: Image.asset('assets/images/google_icon.png'))
+            ],
+          ),
+        ),
+        const SizedBox(width: 16),
+        Container(
+          width: 40,
+          height: 40,
+          clipBehavior: Clip.antiAlias,
+          decoration: ShapeDecoration(
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                      width: 0.5.w,
+                      strokeAlign: BorderSide.strokeAlignOutside,
+                      color: AppColor.lightPinkColor),
+                  borderRadius: BorderRadius.circular(40.r))),
+          child: Stack(
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/images/apple_icon.png',
+                ),
+              )
+            ],
+          ),
+        ),
+        const SizedBox(width: 16),
+        Container(
+          width: 40,
+          height: 40,
+          clipBehavior: Clip.antiAlias,
+          decoration: ShapeDecoration(
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                      width: 0.5.w,
+                      strokeAlign: BorderSide.strokeAlignOutside,
+                      color: AppColor.lightPinkColor),
+                  borderRadius: BorderRadius.circular(40.r))),
+          child: Stack(
+            children: [
+              Center(child: Image.asset('assets/images/facebook_icon.png'))
+            ],
           ),
         )
       ],
