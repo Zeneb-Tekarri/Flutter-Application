@@ -4,6 +4,7 @@ import 'package:onlineshoppingapp/core/constant/color.dart';
 import 'package:onlineshoppingapp/core/widgets/custom_button.dart';
 import 'package:onlineshoppingapp/features/auth/logIn/view/widget/email_password_widget.dart';
 import 'package:onlineshoppingapp/features/auth/logIn/view/widget/other_login_custom.dart';
+import 'package:onlineshoppingapp/features/auth/signUp/view/screen/sign_up_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -49,12 +50,12 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 15.h),
+          SizedBox(height: 10.h),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: CustomButton(text: 'Log In', onPressed: () {}),
           ),
-          SizedBox(height: 15.h),
+          SizedBox(height: 10.h),
           Align(
             alignment: Alignment.center,
             child: Text(
@@ -70,7 +71,7 @@ class LoginScreen extends StatelessWidget {
           ),
           const OtherLoginCustom(),
           SizedBox(
-            height: 15.h,
+            height: 8.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -83,9 +84,13 @@ class LoginScreen extends StatelessWidget {
                     color: Colors.blueGrey),
               ),
               SizedBox(
-                width: 5.w,
+                width: 3.w,
               ),
               InkWell(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (_) => const SignUpScreen()));
+                },
                 child: Text(
                   'register?',
                   style: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshoppingapp/core/constant/string.dart';
 import 'package:onlineshoppingapp/features/auth/logIn/view/screen/logIn_screen.dart';
+import 'package:onlineshoppingapp/features/auth/signUp/view/screen/sign_up_screen.dart';
 import 'package:onlineshoppingapp/features/onBoarding/view/onBoarding.dart';
 import 'package:onlineshoppingapp/features/onBoarding/view/splash.dart';
 
@@ -14,6 +15,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBoarding());
       case Routes.logIn:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case Routes.signUp:
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
