@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:onlineshoppingapp/core/constant/color.dart';
 import 'package:onlineshoppingapp/core/widgets/arrow_back.dart';
+import 'package:onlineshoppingapp/core/widgets/custom_button.dart';
 import 'package:onlineshoppingapp/core/widgets/custom_text_form_field.dart';
+import 'package:onlineshoppingapp/features/auth/logIn/view/widget/other_login_custom.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -56,13 +58,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Form(
                 key: userForm,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Your Name",
-                      style: TextStyle(
-                          color: AppColor.darkBlue,
-                          fontSize: 8.sp,
-                          fontWeight: FontWeight.normal),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 10),
+                      child: Text(
+                        "Your Name",
+                        style: TextStyle(
+                            color: AppColor.darkBlue,
+                            fontSize: 5.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                     CustomTextFormField(
                       hintText: "Full Name",
@@ -76,78 +83,158 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: FaIcon(FontAwesomeIcons.userPen),
                       ),
                     ),
-                    SizedBox(
-                      height: 23.h,
-                    ),
-                    Text(
-                      "UserName",
-                      style: TextStyle(
-                          color: AppColor.darkBlue,
-                          fontSize: 8.sp,
-                          fontWeight: FontWeight.normal),
-                    ),
-                    CustomTextFormField(
-                        hintText: "Username",
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please enter your username";
-                          }
-                        }),
-                    SizedBox(
-                      height: 23.h,
-                    ),
-                    Text(
-                      "Phone Number",
-                      style: TextStyle(
-                          color: AppColor.darkBlue,
-                          fontSize: 8.sp,
-                          fontWeight: FontWeight.normal),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 10),
+                      child: Text(
+                        "UserName",
+                        style: TextStyle(
+                            color: AppColor.darkBlue,
+                            fontSize: 5.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                     CustomTextFormField(
-                        hintText: "+39 333 112 5527",
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please enter your phone number";
-                          }
-                        }),
-                    SizedBox(
-                      height: 23.h,
+                      hintText: "Username",
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter your username";
+                        }
+                      },
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.only(top: 12, left: 14, bottom: 14),
+                        child: FaIcon(FontAwesomeIcons.user),
+                      ),
                     ),
-                    Text(
-                      "Email",
-                      style: TextStyle(
-                          color: AppColor.darkBlue,
-                          fontSize: 8.sp,
-                          fontWeight: FontWeight.normal),
-                    ),
-                    CustomTextFormField(
-                        hintText: "example@gmail.com",
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please enter your email";
-                          }
-                        }),
-                    SizedBox(
-                      height: 23.h,
-                    ),
-                    Text(
-                      "Password",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          color: AppColor.darkBlue,
-                          fontSize: 8.sp,
-                          fontWeight: FontWeight.normal),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 10),
+                      child: Text(
+                        "Phone Number",
+                        style: TextStyle(
+                            color: AppColor.darkBlue,
+                            fontSize: 5.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                     CustomTextFormField(
-                        hintText: "******",
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please enter your password";
-                          }
-                        }),
+                      hintText: "+39 333 112 5527",
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter your phone number";
+                        }
+                      },
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.only(top: 12, left: 14, bottom: 14),
+                        child: FaIcon(FontAwesomeIcons.mobileScreenButton),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 10),
+                      child: Text(
+                        "Email",
+                        style: TextStyle(
+                            color: AppColor.darkBlue,
+                            fontSize: 5.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    CustomTextFormField(
+                      hintText: "example@gmail.com",
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter your email";
+                        }
+                      },
+                      prefixIcon: const Padding(
+                          padding:
+                              EdgeInsets.only(top: 12, left: 14, bottom: 14),
+                          child: Icon(
+                            Icons.email_outlined,
+                            size: 18,
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 10),
+                      child: Text(
+                        "Password",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: AppColor.darkBlue,
+                            fontSize: 5.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    CustomTextFormField(
+                      hintText: "*******",
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter your password";
+                        }
+                      },
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.only(top: 12, left: 14, bottom: 14),
+                        child: Icon(
+                          Icons.lock_outline_rounded,
+                          size: 18,
+                        ),
+                      ),
+                      isObscureText: true,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 10),
+                      child: Text(
+                        "Confirm Password",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: AppColor.darkBlue,
+                            fontSize: 5.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    CustomTextFormField(
+                      hintText: "*******",
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter your password";
+                        }
+                      },
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.only(top: 12, left: 14, bottom: 14),
+                        child: Icon(
+                          Icons.lock_outline_rounded,
+                          size: 18,
+                        ),
+                      ),
+                      isObscureText: true,
+                    ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: 20.h),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: CustomButton(text: 'Sign Up', onPressed: () {}),
+              ),
+              SizedBox(height: 10.h),
+              SizedBox(height: 10.h),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Or Continue With',
+                  style: TextStyle(
+                      fontSize: 8.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.blueGrey),
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              const OtherLoginCustom(),
             ],
           ),
         ),

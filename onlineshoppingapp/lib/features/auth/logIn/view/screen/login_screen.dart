@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
-              padding: const EdgeInsets.only(top: 4, right: 150),
+              padding: const EdgeInsets.only(top: 4, right: 200),
               child: InkWell(
                 onTap: () {},
                 child: Text(
@@ -88,7 +88,7 @@ class LoginScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).pushReplacement(
+                  Navigator.of(context).push(
                       MaterialPageRoute(builder: (_) => const SignUpScreen()));
                 },
                 child: Text(
