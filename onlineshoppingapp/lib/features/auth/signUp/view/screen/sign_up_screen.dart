@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:onlineshoppingapp/core/constant/color.dart';
+import 'package:onlineshoppingapp/core/helper/app_regex.dart';
 import 'package:onlineshoppingapp/core/widgets/arrow_back.dart';
 import 'package:onlineshoppingapp/core/widgets/custom_button.dart';
 import 'package:onlineshoppingapp/core/widgets/custom_text_form_field.dart';
@@ -16,6 +17,32 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   var userForm = GlobalKey<FormState>();
+  bool hasLowerCase = false;
+  bool hasUpperCase = false;
+  bool hasSpecialCharacter = false;
+  bool hasNumber = false;
+  bool hasMinLength = false;
+  late TextEditingController passwordController;
+  @override
+  void initState() {
+    super.initState();
+    passwordController = TextEditingController();
+    passwordControllerListener();
+  }
+
+  void passwordControllerListener() {
+    passwordController.addListener(() {
+      setState(() {
+        hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
+        hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
+        hasSpecialCharacter =
+            AppRegex.hasSpecialCharacter(passwordController.text);
+        hasNumber = AppRegex.hasNumber(passwordController.text);
+        hasMinLength = AppRegex.hasMinLength(passwordController.text);
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,6 +150,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         if (value == null || value.isEmpty) {
                           return "Please enter your phone number";
                         }
+                        if (!AppRegex.isPhoneNumberValid(value)) {
+                          return "Enter a valid phone number";
+                        }
                       },
                       prefixIcon: const Padding(
                         padding: EdgeInsets.only(top: 12, left: 14, bottom: 14),
@@ -144,7 +174,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       hintText: "example@gmail.com",
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Please enter your email";
+                          return "Please enter your email(required)";
+                        }
+                        if (!AppRegex.isEmailValid(value)) {
+                          return "Enter a valid email address";
                         }
                       },
                       prefixIcon: const Padding(
@@ -173,6 +206,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         if (value == null || value.isEmpty) {
                           return "Please enter your password";
                         }
+                        if (!AppRegex.isPasswordValid(value)) {
+                          return "Enter a valid password";
+                        }
                       },
                       prefixIcon: const Padding(
                         padding: EdgeInsets.only(top: 12, left: 14, bottom: 14),
@@ -199,7 +235,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       hintText: "*******",
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Please enter your password";
+                          return "Please re-enter your password";
                         }
                       },
                       prefixIcon: const Padding(

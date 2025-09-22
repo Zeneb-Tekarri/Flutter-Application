@@ -1,11 +1,16 @@
+import 'package:device_preview_plus/device_preview_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onlineshoppingapp/core/constant/string.dart';
 import 'package:onlineshoppingapp/core/routing/router.dart';
 
 void main() {
-  runApp(MyApp(
-    appRouter: AppRouter(),
+  runApp(DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => MyApp(
+      appRouter: AppRouter(),
+    ),
   ));
 }
 
@@ -28,6 +33,7 @@ class MyApp extends StatelessWidget {
         ),
         onGenerateRoute: appRouter.generateRoute,
         initialRoute: Routes.logIn,
+        builder: DevicePreview.appBuilder,
       ),
     );
   }
