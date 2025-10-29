@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
-              padding: const EdgeInsets.only(top: 4, right: 200),
+              padding: const EdgeInsets.only(top: 4, right: 14),
               child: InkWell(
                 onTap: () {},
                 child: Text(

@@ -49,36 +49,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
       backgroundColor: AppColor.backgroundColor,
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(vertical: 20.h),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                height: 10.h,
+                height: 2.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ArrowBack(
+              Stack(children: [
+                Expanded(
+                  child: Image.asset(
+                    'assets/images/Frame 3.png',
+                    height: 200.h,
+                    width: 150.w,
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  child: ArrowBack(
                     onTap: () {
                       Navigator.pop(context);
                     },
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 50.w,
-                    ),
-                    child: Image.asset(
-                      'assets/images/Frame 3.png',
-                      height: 200.h,
-                      width: 150.w,
-                    ),
-                  ),
-                ],
-              ),
+                )
+              ]),
+              SizedBox(width: 8.w),
               SizedBox(
                 height: 20.h,
               ),
@@ -252,10 +250,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 20.h),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: CustomButton(text: 'Sign Up', onPressed: () {}),
+                padding: const EdgeInsets.symmetric(horizontal: 0.5),
+                child: SizedBox(
+                    width: double.infinity,
+                    child: CustomButton(text: 'Sign Up', onPressed: () {})),
               ),
-              SizedBox(height: 10.h),
               SizedBox(height: 10.h),
               Align(
                 alignment: Alignment.center,

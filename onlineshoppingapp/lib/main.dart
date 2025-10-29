@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.logIn,
+        initialRoute: Routes.signUp,
         builder: DevicePreview.appBuilder,
       ),
     );

@@ -39,6 +39,8 @@ dependencies:
   bloc: ^9.0.0
   font_awesome_flutter: ^10.10.0
   device_preview_plus: ^2.5.0
+  dio: ^5.9.0
+  pretty_dio_logger: ^1.4.0
 
 dev_dependencies:
   flutter_test:
